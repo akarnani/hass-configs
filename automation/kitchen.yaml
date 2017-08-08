@@ -1,0 +1,12 @@
+- alias: In from Garage
+  trigger:
+    platform: state
+    entity_id: sensor.kitchen_door_template
+    to: 'Open'
+  condition:
+    condition: sun
+    after: sunset
+    after_offset: '-01:00:00'
+  action:
+    service: switch.turn_on
+    entity_id: switch.kitchen_lights_switch

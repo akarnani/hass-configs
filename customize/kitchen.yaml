@@ -1,0 +1,4 @@
+sensor.kitchen_door_access_control:
+  device_class: opening
+
+

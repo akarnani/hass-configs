@@ -10,6 +10,8 @@ homeassistant:
   unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
+  
+  customize: !include_dir_merge_named customize
 
 # Enables the frontend
 frontend:
@@ -58,6 +60,7 @@ tts:
 
 zwave:
   usb_path: /dev/ttyUSB0
+  network_key: !secret zwave_network_key
 
 group: !include_dir_merge_list group
 automation: !include_dir_merge_list automation

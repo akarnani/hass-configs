@@ -5,16 +5,16 @@
       offset: "-00:45:00"
   action:
       service: switch.turn_on
-      entity_id: switch.switch_2
+      entity_id: switch.garden_lights_switch
 
 - alias: Turn off Garden Lights
   trigger:
     - platform: state
-      entity_id: switch.switch_2
-      state: 'on'
+      entity_id: switch.garden_lights_switch
+      to: 'on'
       for:
         hours: 5
   action:
     service: switch.turn_off
-    entity_id: switch.switch_2
+    entity_id: switch.garden_lights_switch
 
