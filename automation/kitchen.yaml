@@ -10,3 +10,14 @@
   action:
     service: switch.turn_on
     entity_id: switch.kitchen_lights_switch
+
+- alias: Lock Door
+  trigger:
+    platform: state
+    entity_id: sensor.kitchen_door_template
+    to: 'Closed'
+    for:
+      seconds: 30
+  action:
+    service: lock.lock
+    entity_id: lock.kitchen_door_lock_locked
