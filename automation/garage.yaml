@@ -1,0 +1,28 @@
+- alias: Turn on Garage Lights
+  trigger:
+    platform: state
+    entity_id: cover.garage_door
+    to: 'open'
+  action:
+    service: switch.turn_on
+    entity_id: switch.garage_lights_switch
+
+- alias: Turn off Garage Lights
+  trigger:
+    platform: state
+    entity_id: switch.garage_lights_switch
+    to: 'on'
+    for:
+      minutes: 1
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.kitchen_door_template
+        state: 'Closed'
+      - condition: state
+        entity_id: cover.garage_door
+        state: 'closed'
+  action:
+    service: switch.turn_off
+    entity_id: switch.garage_lights_switch

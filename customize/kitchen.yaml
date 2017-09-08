@@ -1,4 +1,7 @@
 sensor.kitchen_door_access_control:
   device_class: opening
 
+lock.kitchen_door_lock_locked:
+  friendly_name: Kitchen Door Lock
+
 

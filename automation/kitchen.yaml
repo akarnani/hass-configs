@@ -25,3 +25,4 @@
   action:
     service: lock.lock
     entity_id: lock.kitchen_door_lock_locked
+
