@@ -1,0 +1,12 @@
+machine:
+  python:
+    version: 3.5.2
+
+dependencies:
+  pre:
+    - pip install homeassistant
+
+test:
+  override:
+    - mv ci_secrets.yaml secrets.yaml
+    - hass -c . --script check_config
