@@ -13,7 +13,7 @@
       entity_id: switch.garden_lights_switch
       to: 'on'
       for:
-        hours: 5
+        hours: 3
   action:
     service: switch.turn_off
     entity_id: switch.garden_lights_switch
