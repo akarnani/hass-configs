@@ -1,16 +1,16 @@
-- alias: In from Garage
+- alias: Kitchen Light On
   trigger:
-    platform: state
-    entity_id: sensor.kitchen_door_template
-    to: 'Open'
+    - platform: state
+      entity_id: binary_sensor.kitchen_door_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.kitchen_motion_sensor
+      to:
+         'on'
   condition:
-    condition: or
-    conditions:
-      - condition: sun
-        after: sunset
-        after_offset: '-01:00:00'
-      - condition: sun
-        before: sunrise
+    condition: numeric_state
+    entity_id: sensor.kitchen_motion_luminance
+    below: '70'
   action:
     service: switch.turn_on
     entity_id: switch.kitchen_lights_switch
@@ -18,8 +18,8 @@
 - alias: Lock Door
   trigger:
     platform: state
-    entity_id: sensor.kitchen_door_template
-    to: 'Closed'
+    entity_id: binary_sensor.kitchen_door_sensor
+    to: 'off'
     for:
       seconds: 30
   action:
@@ -45,4 +45,3 @@
   action:
     service: switch.turn_off
     entity_id: switch.pantry_lights_switch
-
