@@ -26,3 +26,23 @@
     service: lock.lock
     entity_id: lock.kitchen_door_lock_locked
 
+- alias: Pantry Light On Motion
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pantry_motion_sensor
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.pantry_lights_switch
+
+- alias: Pantry Light Off Motion
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pantry_motion_sensor
+    to: 'off'
+    for:
+      seconds: 20
+  action:
+    service: switch.turn_off
+    entity_id: switch.pantry_lights_switch
+
