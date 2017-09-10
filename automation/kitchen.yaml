@@ -19,6 +19,9 @@
     - platform: state
       entity_id: binary_sensor.kitchen_motion_sensor
       to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.kitchen_lights_switch
 
 - alias: Lock Door
   trigger:
