@@ -1,7 +1,7 @@
 - alias: Kitchen Light On
   trigger:
     - platform: state
-      entity_id: binary_sensor.kitchen_door_sensor
+      entity_id: binary_sensor.kitchen_door_template
       to: 'on'
     - platform: state
       entity_id: binary_sensor.kitchen_motion_sensor
@@ -26,7 +26,7 @@
 - alias: Lock Door
   trigger:
     platform: state
-    entity_id: binary_sensor.kitchen_door_sensor
+    entity_id: binary_sensor.kitchen_door_template
     to: 'off'
     for:
       seconds: 30
