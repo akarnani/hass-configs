@@ -80,3 +80,10 @@ cover:
       host: !secret opengarage_host
       device_key: !secret opengarage_key
       name: Garage Door
+
+device_tracker:
+  - platform: ping
+    track_new_devices: True
+    hosts:
+      andrew: 10.0.1.75
+      vera: 10.0.1.76
