@@ -64,7 +64,8 @@ zwave:
 
 group: !include_dir_merge_list group
 automation: !include_dir_merge_list automation
-binary_sensor: !include_dir_merge_list sensor
+sensor: !include_dir_merge_list sensor
+binary_sensor: !include_dir_merge_list binary_sensor
 
 panel_iframe:
   configurator:

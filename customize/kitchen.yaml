@@ -1,5 +1,5 @@
 binary_sensor.kitchen_door_sensor:
-  device_class: opening
+  hidden: true
 
 binary_sensor.kitchen_motion_sensor:
   device_class: motion
