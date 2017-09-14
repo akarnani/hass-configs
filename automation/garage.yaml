@@ -53,7 +53,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: sensor.kitchen_door_template
+        entity_id: binary_sensor.kitchen_door_template
         state: 'off'
       - condition: state
         entity_id: cover.garage_door

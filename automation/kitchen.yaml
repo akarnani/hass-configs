@@ -1,7 +1,7 @@
 - alias: Kitchen Light Motion
   trigger:
-    - platform: state
-      entity_id: binary_sensor.kitchen_motion_sensor
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor
   action:
     service_template: >
             {% if trigger.to_state.state == 'on' %}
