@@ -12,6 +12,10 @@ homeassistant:
   time_zone: America/Los_Angeles
   
   customize: !include_dir_merge_named customize
+  customize_glob:
+    "group.all_*":
+       homebridge_hidden: true
+       emulated_hue: false
 
 # Enables the frontend
 frontend:
@@ -87,3 +91,6 @@ device_tracker:
     hosts:
       andrew: 10.0.1.75
       vera: 10.0.1.76
+
+emulated_hue:
+  listen_port: 80

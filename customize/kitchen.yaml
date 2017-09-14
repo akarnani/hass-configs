@@ -7,6 +7,6 @@ binary_sensor.pantry_motion_sensor:
   device_class: motion
 
 lock.kitchen_door_lock_locked:
-  friendly_name: Kitchen Door Lock
+  friendly_name: Kitchen Door
 
 

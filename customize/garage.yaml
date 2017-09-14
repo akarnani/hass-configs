@@ -1,2 +1,4 @@
 cover.garage_door:
   device_class: garage
+  homebridge_cover_type: garage_door
+  emulated_hue: true

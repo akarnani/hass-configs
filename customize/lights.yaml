@@ -1,0 +1,12 @@
+switch.kitchen_lights_switch:
+  friendly_name: Kitchen Lights
+
+switch.pantry_lights_switch:
+  friendly_name: Pantry Lights
+
+switch.garage_lights_switch:
+  friendly_name: Garage Lights
+
+switch.garden_lights_switch:
+  friendly_name: Garden Lights
+
