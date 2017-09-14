@@ -4,7 +4,7 @@
       event: sunset
       offset: "-00:15:00"
   action:
-      service: switch.turn_on
+      service: homeassistant.turn_on
       entity_id: switch.garden_lights_switch
 
 - alias: Turn off Garden Lights
@@ -15,6 +15,6 @@
       for:
         hours: 3
   action:
-    service: switch.turn_off
+    service: homeassistant.turn_off
     entity_id: switch.garden_lights_switch
 

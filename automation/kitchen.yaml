@@ -1,26 +1,27 @@
-- alias: Kitchen Light On
+- alias: Kitchen Light Motion
   trigger:
     - platform: state
-      entity_id: binary_sensor.kitchen_door_template
-      to: 'on'
-    - platform: state
       entity_id: binary_sensor.kitchen_motion_sensor
-      to: 'on'
-  condition:
-    condition: numeric_state
-    entity_id: sensor.kitchen_motion_luminance
-    below: '70'
   action:
-    service: switch.turn_on
+    service_template: >
+            {% if trigger.to_state.state == 'on' %}
+              homeassistant.turn_on
+            {% else %}
+              homeassistant.turn_off
+            {% endif %}
     entity_id: switch.kitchen_lights_switch
 
-- alias: Kitchen Light Off
+- alias: Into Kitchen
   trigger:
-    - platform: state
-      entity_id: binary_sensor.kitchen_motion_sensor
-      to: 'off'
+    platform: state
+    entity_id: binary_sensor.kitchen_door_template
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor
+    state: 'off'
   action:
-    service: switch.turn_off
+    service: homeassistant.turn_on
     entity_id: switch.kitchen_lights_switch
 
 - alias: Lock Door
@@ -40,7 +41,7 @@
     entity_id: binary_sensor.pantry_motion_sensor
     to: 'on'
   action:
-    service: switch.turn_on
+    service: homeassistant.turn_on
     entity_id: switch.pantry_lights_switch
 
 - alias: Pantry Light Off Motion
@@ -51,5 +52,5 @@
     for:
       seconds: 20
   action:
-    service: switch.turn_off
+    service: homeassistant.turn_off
     entity_id: switch.pantry_lights_switch
