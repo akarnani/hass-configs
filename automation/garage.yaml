@@ -61,3 +61,19 @@
   action:
     service: homeassistant.turn_off
     entity_id: switch.garage_lights_switch
+
+- alias: Notify Open Garage Door
+  trigger:
+    platform: state
+    entity_id: cover.garage_door
+    to: 'on'
+    for:
+      minutes: 15
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: 'not_home'
+  action:
+    service: notify.slack
+    data_template:
+      message: "Garage door is open and no one is home"

@@ -50,6 +50,13 @@ history:
 # View all events in a logbook
 logbook:
 
+recorder:
+  purge_interval: 2
+  purge_keep_days: 10
+  exclude:
+    domains:
+      - zwave
+
 # Track the sun
 sun:
 
@@ -65,17 +72,16 @@ tts:
 zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_network_key
+  device_config:
+    light.family_room_lights_level:
+      refresh_value: true
+    light.master_bedroom_lights_level:
+      refresh_value: true
 
 group: !include_dir_merge_list group
 automation: !include_dir_merge_list automation
 sensor: !include_dir_merge_list sensor
 binary_sensor: !include_dir_merge_list binary_sensor
-
-panel_iframe:
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: http://hassio.local:3218
 
 cover:
   platform: opengarage
@@ -94,3 +100,15 @@ device_tracker:
 
 emulated_hue:
   listen_port: 80
+
+logger:
+  default: warn
+
+media_player:
+  - platform: kodi
+    host: 10.0.1.50
+notify:
+  - name: slack
+    platform: slack
+    api_key: !secret slack_key
+    default_channel: !secret slack_channel

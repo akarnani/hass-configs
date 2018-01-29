@@ -1,0 +1,30 @@
+- alias: 'Master Bedroom Full brightness'
+  trigger:
+    - event_type: zwave.scene_activated
+      platform: event
+      event_data:
+        entity_id: zwave.master_bedroom_lights
+        scene_id: 1
+        scene_data: 3
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.master_bedroom_lights_level
+    data:
+      brightness: 255
+
+- alias: 'Goodnight'
+  trigger:
+    - event_type: zwave.scene_activated
+      platform: event
+      event_data:
+        entity_id: zwave.master_bedroom_lights
+        scene_id: 2
+        scene_data: 3
+  action:
+    - service: lock.lock
+      entity_id: group.all_locks
+    - delay: 00:00:30
+    - service: homeassistant.turn_off
+      entity_id: group.all_lights
+    - service: homeassistant.turn_off
+      entity_id: group.all_switches
