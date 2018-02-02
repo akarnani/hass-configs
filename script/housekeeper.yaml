@@ -1,0 +1,11 @@
+enable_housekeeper_temp_code:
+  alias: enable housekeeper temp code
+  sequence:
+    - service: lock.set_usercode
+      data_template:
+        node_id: {{states.zwave.front_door_lock.attributes.node_id}}
+        code_slot: {{2}}
+        usercode: !secret housekeeper_code
+    - service: notify.slack
+      data:
+        message: "Front door lock code has been set for the housekeeper"
