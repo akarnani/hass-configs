@@ -8,7 +8,7 @@ enable_housekeeper_code:
         usercode: !secret housekeeper_code
     - service: notify.slack
       data_template:
-        message: "Front door lock code has been set for the housekeeper (!secret housekeeper_code)"
+        message: "Front door lock code has been set for the housekeeper"
 
 disable_housekeeper_code:
   alias: Disable Housekeeper Code
@@ -17,7 +17,7 @@ disable_housekeeper_code:
       data_template:
         node_id: "{{states.zwave.front_door_lock.attributes.node_id}}"
         code_slot: "{{2}}"
-        usercode: "{{states.sensor.pin_generator}}"
+        usercode: "{{states.sensor.pin_generator.state}}"
     - service: notify.slack
       data_template:
         message: "Front door code for housekeeper has been disabled"
