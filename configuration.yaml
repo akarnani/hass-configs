@@ -17,11 +17,30 @@ homeassistant:
        homebridge_hidden: true
        emulated_hue: false
 
+  customize_domain:
+    remote:
+      homebridge_hidden: true
+    media_player:
+      homebridge_hidden: true
+    automation:
+      homebridge_hidden: true
 # Enables the frontend
 frontend:
 
 # Enables configuration UI
 config:
+
+homekit:
+  auto_start: False
+  filter:
+    exclude_domains:
+      - remote
+      - automation
+      - media_player
+    exclude_entities:
+      - light.level_2
+      - switch.switch_2
+
 
 http:
   # Uncomment this to add a password (recommended!)

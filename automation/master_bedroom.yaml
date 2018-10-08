@@ -21,10 +21,5 @@
         scene_id: 2
         scene_data: 3
   action:
-    - service: lock.lock
-      entity_id: group.all_locks
-    - delay: 00:00:30
-    - service: homeassistant.turn_off
-      entity_id: group.all_lights
-    - service: homeassistant.turn_off
-      entity_id: group.all_switches
+      - service: script.turn_on
+        entity_id: script.goodnight

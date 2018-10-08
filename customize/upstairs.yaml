@@ -1,0 +1,7 @@
+switch.switch_2:
+  hidden: true
+  homebridge_hidden: true
+
+light.level_2:
+  hidden: true
+  homebridge_hidden: true

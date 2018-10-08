@@ -1,0 +1,17 @@
+goodnight:
+  alias: Goodnight
+  sequence:
+    - service: light.turn_on
+      entity_id: light.master_bedroom_lights_level
+      data_template:
+        brightness: '{{ ( state_attr("light.master_bedroom_lights_level", "brightness") - 20) if is_state("light.master_bedroom_lights_level", "on")  else 75}}'
+    - service: cover.close_cover
+      entity_id: group.all_covers
+    - service: lock.lock
+      entity_id: group.all_locks
+    - delay: 00:00:30
+    - service: homeassistant.turn_off
+      entity_id: group.all_lights
+    - service: homeassistant.turn_off
+      entity_id: group.all_switches
+

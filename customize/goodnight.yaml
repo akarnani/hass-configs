@@ -1,0 +1,3 @@
+script.goodnight:
+    icon: mdi:power-sleep
+    can_cancel: false

@@ -2,5 +2,5 @@ lock.front_door_lock_locked:
   friendly_name: Front Door
 
 binary_sensor.front_door_sensor:
-  device_class: opening
+  device_class: door
   friendly_name: Front Door

@@ -1,0 +1,12 @@
+- alias: Everyone's Gone
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    to: 'not_home'
+    for:
+      minutes: 30
+  action:
+    - service: lock.lock
+      entity_id: group.all_locks
+    - service: cover.close_cover
+      entity_id: group.all_covers
