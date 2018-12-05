@@ -10,3 +10,8 @@
       entity_id: group.all_locks
     - service: cover.close_cover
       entity_id: group.all_covers
+    - service: homeassistant.turn_off
+      entity_id: switch.coffee_machine
+    - service: nest.set_away_mode
+      data:
+        away_mode: 'away'

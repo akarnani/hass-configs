@@ -1,0 +1,9 @@
+- alias: Someones Home
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    to: 'home'
+  action:
+    - service: nest.set_away_mode
+      data:
+        away_mode: 'home'

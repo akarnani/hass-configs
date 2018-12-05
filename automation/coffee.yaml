@@ -1,0 +1,19 @@
+- alias: Turn on Coffee Maker
+  trigger:
+    - platform: time
+      at: '08:00:00'
+  action:
+      service: homeassistant.turn_on
+      entity_id: switch.coffee_machine
+
+- alias: Turn off Coffee Machine
+  trigger:
+    - platform: state
+      entity_id: switch.coffee_machine
+      to: 'on'
+      for:
+        hours: 5
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.coffee_machine
+

@@ -1,0 +1,10 @@
+management:
+  name: Management
+  view: true
+  entities:
+    - group.all_automations
+    - group.all_covers
+    - group.all_devices
+    - group.all_lights
+    - group.all_switches
+    - group.all_scripts

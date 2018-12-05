@@ -16,6 +16,7 @@ homeassistant:
     "group.all_*":
        homebridge_hidden: true
        emulated_hue: false
+       hidden: false
 
   customize_domain:
     remote:
@@ -84,9 +85,9 @@ sun:
 tts:
   - platform: google
 
-#nest:
-#  client_id: !secret nest_id
-#  client_secret: !secret nest_secret
+nest:
+  client_id: !secret nest_id
+  client_secret: !secret nest_secret
 
 zwave:
   usb_path: /dev/ttyUSB0
@@ -97,7 +98,7 @@ zwave:
     light.master_bedroom_lights_level:
       refresh_value: true
 
-group: !include_dir_merge_list group
+group: !include_dir_merge_named group
 automation: !include_dir_merge_list automation
 sensor: !include_dir_merge_list sensor
 binary_sensor: !include_dir_merge_list binary_sensor
