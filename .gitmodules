@@ -1,0 +1,3 @@
+[submodule "packages/lockmanager"]
+	path = packages/lockmanager
+	url = https://github.com/akarnani/lock-manager

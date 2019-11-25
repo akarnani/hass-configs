@@ -12,6 +12,7 @@ homeassistant:
   time_zone: America/Los_Angeles
   
   customize: !include_dir_merge_named customize
+  packages: !include_dir_named packages
   customize_glob:
     "group.all_*":
        homebridge_hidden: true
@@ -30,6 +31,10 @@ frontend:
 
 # Enables configuration UI
 config:
+
+hassio:
+
+system_health:
 
 homekit:
   auto_start: False
@@ -55,14 +60,15 @@ http:
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
+  reporting: false
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
 # Discover some devices automatically
-discovery:
+#discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+#conversation:
 
 # Enables support for tracking state changes over time
 history:
@@ -83,7 +89,8 @@ sun:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 nest:
   client_id: !secret nest_id
@@ -92,25 +99,22 @@ nest:
 zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_network_key
-  device_config:
-    light.family_room_lights_level:
-      refresh_value: true
-    light.master_bedroom_lights_level:
-      refresh_value: true
+  device_config: !include zwave_device_config.yaml
 
+hacs:
+  token: !secret github_token
+    
 group: !include_dir_merge_named group
 automation: !include_dir_merge_list automation
 sensor: !include_dir_merge_list sensor
 binary_sensor: !include_dir_merge_list binary_sensor
 script: !include_dir_merge_named script
 
-cover:
-  platform: opengarage
-  covers:
-    garage:
-      host: !secret opengarage_host
-      device_key: !secret opengarage_key
-      name: Garage Door
+input_datetime:
+  coffee_machine:
+    name: Coffee Machine On Time
+    has_date: false
+    has_time: true
 
 device_tracker:
   - platform: ping

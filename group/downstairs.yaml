@@ -9,6 +9,7 @@ default_view:
     - switch.entry_way_lights_switch
     - switch.garage_lights_switch
     - switch.kitchen_lights_switch
+    - switch.pantry_lights_switch
     - group.door_sensors
     - light.family_room_lights_level
     - sun.sun
@@ -17,9 +18,10 @@ default_view:
     - sensor.coffee_machine_current
     - sensor.yr_symbol
     - binary_sensor.house_away
+    - input_datetime.coffee_machine
 
 door_sensors:
   name: Doors
   entities:
-    - binary_sensor.kitchen_door_sensor
+    - binary_sensor.kitchen_door_template
     - binary_sensor.front_door_sensor

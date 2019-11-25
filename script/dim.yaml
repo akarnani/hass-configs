@@ -1,0 +1,9 @@
+dim_light:
+  alias: Dim light if on
+  sequence:
+    - condition: template
+      value_template: '{{ is_state(entity, "on")}}' 
+    - service: light.turn_on
+      data_template:
+        entity_id: "{{ entity }}"
+        brightness: "{{ (state_attr(entity, 'brightness') / 2) | round }}"

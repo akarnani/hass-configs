@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    coffee_machine_on:
+      friendly_name: "Should turn on coffee machine"
+      value_template: >-
+        {{states.sensor.time.state == (states.input_datetime.coffee_machine.attributes.timestamp | int | timestamp_custom('%H:%M', False))}}

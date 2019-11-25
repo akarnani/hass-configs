@@ -1,10 +1,9 @@
 goodnight:
   alias: Goodnight
   sequence:
-    - service: light.turn_on
-      entity_id: light.master_bedroom_lights_level
-      data_template:
-        brightness: '{{ ( state_attr("light.master_bedroom_lights_level", "brightness") - 20) if is_state("light.master_bedroom_lights_level", "on")  else 75}}'
+    - service: script.dim_light
+      data:
+        entity: light.master_bedroom_lights_level
     - service: cover.close_cover
       entity_id: group.all_covers
     - service: lock.lock

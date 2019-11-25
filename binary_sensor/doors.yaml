@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    kitchen_door_template:
+      friendly_name: Kitchen Door
+      device_class: door
+      value_template: '{% if is_state("sensor.kitchen_door_access_control", "23") %}False{% else %}True{% endif %}'
