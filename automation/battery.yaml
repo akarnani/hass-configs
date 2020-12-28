@@ -1,5 +1,4 @@
 - alias: Low Battery Notification
-  hide_entity: True
   trigger:
     platform: template
     value_template: >

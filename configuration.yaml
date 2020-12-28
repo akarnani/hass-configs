@@ -29,6 +29,9 @@ homeassistant:
 # Enables the frontend
 frontend:
 
+mobile_app:
+cloud:
+
 # Enables configuration UI
 config:
 
@@ -38,15 +41,8 @@ system_health:
 
 homekit:
   auto_start: False
-  filter:
-    exclude_domains:
-      - remote
-      - automation
-      - media_player
-    exclude_entities:
-      - light.level_2
-      - switch.switch_2
-
+  filter: !include homekit_filter.yaml
+    
 
 http:
   # Uncomment this to add a password (recommended!)
@@ -77,7 +73,6 @@ history:
 logbook:
 
 recorder:
-  purge_interval: 2
   purge_keep_days: 10
   exclude:
     domains:
@@ -103,6 +98,7 @@ zwave:
 
 hacs:
   token: !secret github_token
+  appdaemon: true
     
 group: !include_dir_merge_named group
 automation: !include_dir_merge_list automation
@@ -117,14 +113,6 @@ input_datetime:
     has_time: true
 
 device_tracker:
-  - platform: ping
-    track_new_devices: True
-    hosts:
-      andrew: 10.0.1.75
-      vera: 10.0.1.76
-
-emulated_hue:
-  listen_port: 80
 
 logger:
   default: warn
@@ -137,3 +125,8 @@ notify:
     platform: slack
     api_key: !secret slack_key
     default_channel: !secret slack_channel
+
+nuheat:
+  username: !secret nuheat_username
+  password: !secret nuheat_password
+  devices: !secret nuheat_device_id

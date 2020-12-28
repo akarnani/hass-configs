@@ -1,4 +1,4 @@
-binary_sensor.kitchen_door_sensor:
+binary_sensor.kitchen_door:
   device_class: door
 
 binary_sensor.kitchen_motion_sensor:

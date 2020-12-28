@@ -17,3 +17,8 @@
     - service: nest.set_away_mode
       data:
         away_mode: 'away'
+    - service: climate.set_temperature
+      entity_id: climate.floor
+      data:
+        temperature: '{{state_attr("climate.floor", "min_temp")}}'
+        hvac_mode: heat

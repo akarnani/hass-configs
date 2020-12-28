@@ -1,0 +1,29 @@
+all_locks:
+  name: All Locks
+  entities:
+    - lock.front_door_lock_locked
+    - lock.kitchen_door_lock_locked
+
+all_covers:
+  name: All Covers
+  entities:
+    - cover.garage_door
+
+all_lights:
+  name: All Lights
+  entities:
+    - light.dining_room_lights_level
+    - light.family_room_lights_level
+    - light.master_bedroom_lights_level
+
+all_switches:
+  name: All Switches
+  entities:
+    - switch.coffee_machine
+    - switch.entry_way_lights_switch
+    - switch.garage_lights_switch
+    - switch.garden_lights_switch
+    - switch.kitchen_lights_switch
+    - switch.pantry_lights_switch
+    - switch.sewing_area_lights_switch
+    - switch.stairs_light_switch

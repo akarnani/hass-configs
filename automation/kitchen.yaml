@@ -2,14 +2,6 @@
   trigger:
     platform: state
     entity_id: binary_sensor.kitchen_motion_sensor
-  condition:
-    condition: or
-    conditions:
-      - condition: sun
-        after: sunset
-        after_offset: '-02:00:00'
-      - condition: sun
-        before: sunrise
   action:
     service_template: >
             {% if trigger.to_state.state == 'on' %}
@@ -22,7 +14,7 @@
 - alias: Into Kitchen
   trigger:
     platform: state
-    entity_id: binary_sensor.kitchen_door_template
+    entity_id: binary_sensor.kitchen_door
     to: 'on'
   condition:
     condition: and
@@ -40,17 +32,6 @@
   action:
     service: homeassistant.turn_on
     entity_id: switch.kitchen_lights_switch
-
-- alias: Lock Door
-  trigger:
-    platform: state
-    entity_id: binary_sensor.kitchen_door_template
-    to: 'off'
-    for:
-      seconds: 30
-  action:
-    service: lock.lock
-    entity_id: lock.kitchen_door_lock_locked
 
 - alias: Pantry Light On Motion
   trigger:

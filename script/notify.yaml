@@ -1,0 +1,8 @@
+conditional_notify:
+  alias: "Conditionally Notify"
+  sequence:
+    - condition: template
+      value_template: "{{(states(boolean) == 'on')}}"
+    - service: notify.slack
+      data_template:
+        message: "{{title}} - {{message}}"

@@ -1,0 +1,16 @@
+include_domains:
+  - light
+  - switch
+  - lock
+  - cover
+  - climate
+  - device_tracker
+include_entities:
+  - script.goodnight
+  -  binary_sensor.pantry_motion_sensor
+  -  binary_sensor.kitchen_motion_sensor
+  -  binary_sensor.front_door_sensor
+  - binary_sensor.kitchen_door_sensor
+exclude_entities:
+  - light.level_2
+  - switch.switch_2

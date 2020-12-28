@@ -7,3 +7,7 @@
     - service: nest.set_away_mode
       data:
         away_mode: 'home'
+    - service: climate.set_preset_mode
+      data:
+        entity_id: climate.floor
+        preset_mode: 'Run Schedule'
