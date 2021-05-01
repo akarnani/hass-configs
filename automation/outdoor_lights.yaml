@@ -5,16 +5,18 @@
       offset: "-00:15:00"
   action:
       service: homeassistant.turn_on
-      entity_id: switch.garden_lights_switch
+      entity_id:
+        - switch.garden_lights_switch
+        - switch.porch_lights_switch
 
 - alias: Turn off Garden Lights
   trigger:
-    - platform: state
-      entity_id: switch.garden_lights_switch
-      to: 'on'
-      for:
-        hours: 3
+    - platform: time
+      at: "00:00"
   action:
     service: homeassistant.turn_off
-    entity_id: switch.garden_lights_switch
+    entity_id: 
+      - switch.garden_lights_switch
+      - switch.porch_lights_switch
+
 

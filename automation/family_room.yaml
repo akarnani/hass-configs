@@ -11,3 +11,18 @@
     entity_id: light.family_room_lights_level
     data:
       brightness: 255
+
+- alias: 'Turn on the Christmas Tree'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  condition:
+    condition: state
+    entity_id: binary_sensor.everyone_not_home
+    state: 'off'
+  action:
+    service: switch.turn_on
+    entity_id: switch.christmas_tree
+
+      

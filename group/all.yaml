@@ -20,10 +20,12 @@ all_switches:
   name: All Switches
   entities:
     - switch.coffee_machine
-    - switch.entry_way_lights_switch
+    - switch.porch_lights_switch
     - switch.garage_lights_switch
     - switch.garden_lights_switch
     - switch.kitchen_lights_switch
     - switch.pantry_lights_switch
     - switch.sewing_area_lights_switch
     - switch.stairs_light_switch
+    - switch.christmas_tree
+    - switch.desk_lights_switch

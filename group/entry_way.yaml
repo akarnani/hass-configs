@@ -1,5 +1,0 @@
-entry_way:
-  name: Entry Way Lights
-  entities:
-    - switch.entry_way_lights_switch
-    - switch.stairs_light_switch
