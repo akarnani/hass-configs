@@ -40,9 +40,7 @@ hassio:
 system_health:
 
 homekit:
-  auto_start: False
   filter: !include homekit_filter.yaml
-    
 
 http:
   # Uncomment this to add a password (recommended!)
@@ -91,10 +89,10 @@ nest:
   client_id: !secret nest_id
   client_secret: !secret nest_secret
 
-zwave:
-  usb_path: /dev/ttyUSB0
-  network_key: !secret zwave_network_key
-  device_config: !include zwave_device_config.yaml
+#zwave:
+#  usb_path: /dev/ttyUSB0
+#  network_key: !secret zwave_network_key
+#  device_config: !include zwave_device_config.yaml
 
 hacs:
   token: !secret github_token

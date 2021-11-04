@@ -27,3 +27,7 @@ ip_bans.yaml
 /homebridge/*
 *.pyc
 *.patch
+appdaemon/
+custom_components/
+blueprints/automation/homeassistant
+blueprints/script/homeassistant

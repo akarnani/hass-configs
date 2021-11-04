@@ -1,11 +1,11 @@
 - alias: 'Master Bedroom Full brightness'
   trigger:
-    - event_type: zwave.scene_activated
+    - event_type: zwave_js_value_notification
       platform: event
       event_data:
-        entity_id: zwave.master_bedroom_lights
-        scene_id: 1
-        scene_data: 3
+        node_id: 21
+        property_key: "001"
+        value: "KeyPressed2x"
   action:
     service: homeassistant.turn_on
     entity_id: light.master_bedroom_lights_level
@@ -14,12 +14,12 @@
 
 - alias: 'Goodnight'
   trigger:
-    - event_type: zwave.scene_activated
+    - event_type: zwave_js_value_notification
       platform: event
       event_data:
-        entity_id: zwave.master_bedroom_lights
-        scene_id: 2
-        scene_data: 3
+        node_id: 21
+        property_key: "002"
+        value: "KeyPressed2x"
   action:
       - service: script.turn_on
         entity_id: script.goodnight

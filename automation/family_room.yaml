@@ -1,11 +1,12 @@
 - alias: 'Family Room Full brightness'
   trigger:
-    - event_type: zwave.scene_activated
+    - event_type: zwave_js_value_notification
       platform: event
       event_data:
-        entity_id: zwave.family_room_lights
-        scene_id: 1
-        scene_data: 3
+        node_id: 14
+        property_key: "001"
+        value: "KeyPressed2x"
+        
   action:
     service: homeassistant.turn_on
     entity_id: light.family_room_lights_level
