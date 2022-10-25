@@ -1,4 +1,5 @@
-*.pid
+*
+pid
 *.xml
 *.csr
 *.crt
@@ -31,3 +32,4 @@ appdaemon/
 custom_components/
 blueprints/automation/homeassistant
 blueprints/script/homeassistant
+packages/keymaster/

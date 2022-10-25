@@ -4,8 +4,8 @@
       at: input_datetime.coffee_machine
   condition:
     - condition: state
-      entity_id: binary_sensor.everyone_not_home
-      state: 'off'
+      entity_id: group.all_devices
+      state: 'home'
     - condition: state
       entity_id: switch.coffee_machine
       state: 'off'
@@ -26,13 +26,3 @@
     service: homeassistant.turn_off
     entity_id: switch.coffee_machine
 
-- alias: Reset Coffee Machine Meter
-  trigger:
-    - platform: time
-      at: '00:00:01'
-  condition:
-    - condition: template
-      value_template: "{{ now().day == 1 }}"
-  action:
-    - service: zwave_js.reset_meter
-      entity_id: sensor.coffee_machine_energy

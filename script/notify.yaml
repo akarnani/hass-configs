@@ -1,8 +1,5 @@
-conditional_notify:
-  alias: "Conditionally Notify"
+keymaster_frontdoor_manual_notify:
   sequence:
-    - condition: template
-      value_template: "{{(states(boolean) == 'on')}}"
     - service: notify.slack
       data_template:
         message: "{{title}} - {{message}}"

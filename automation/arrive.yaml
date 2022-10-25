@@ -4,9 +4,10 @@
     entity_id: group.all_devices
     to: 'home'
   action:
-    - service: nest.set_away_mode
+    - service: climate.set_preset_mode
       data:
-        away_mode: 'home'
+        preset_mode: none
+        entity_id: climate.upstairs
     - service: climate.set_preset_mode
       data:
         entity_id: climate.floor

@@ -3,7 +3,7 @@
     - event_type: zwave_js_value_notification
       platform: event
       event_data:
-        node_id: 21
+        node_id: 4
         property_key: "001"
         value: "KeyPressed2x"
   action:
@@ -17,7 +17,7 @@
     - event_type: zwave_js_value_notification
       platform: event
       event_data:
-        node_id: 21
+        node_id: 4
         property_key: "002"
         value: "KeyPressed2x"
   action:

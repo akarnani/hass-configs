@@ -12,9 +12,9 @@ all_covers:
 all_lights:
   name: All Lights
   entities:
-    - light.dining_room_lights_level
-    - light.family_room_lights_level
-    - light.master_bedroom_lights_level
+    - light.dining_room_lights
+    - light.family_room_lights
+    - light.master_bedroom_lights
 
 all_switches:
   name: All Switches

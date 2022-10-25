@@ -1,4 +1,0 @@
-- platform: random
-  name: Pin Generator
-  minimum: 1000
-  maximum: 9999

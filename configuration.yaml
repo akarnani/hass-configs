@@ -37,10 +37,14 @@ config:
 
 hassio:
 
+my:
+
 system_health:
 
 homekit:
   filter: !include homekit_filter.yaml
+
+energy:
 
 http:
   # Uncomment this to add a password (recommended!)
@@ -48,15 +52,6 @@ http:
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  reporting: false
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
 
 # Discover some devices automatically
 #discovery:
@@ -88,6 +83,7 @@ tts:
 nest:
   client_id: !secret nest_id
   client_secret: !secret nest_secret
+  project_id: !secret nest_project
 
 #zwave:
 #  usb_path: /dev/ttyUSB0
@@ -118,13 +114,3 @@ logger:
 media_player:
   - platform: kodi
     host: 10.0.1.50
-notify:
-  - name: slack
-    platform: slack
-    api_key: !secret slack_key
-    default_channel: !secret slack_channel
-
-nuheat:
-  username: !secret nuheat_username
-  password: !secret nuheat_password
-  devices: !secret nuheat_device_id

@@ -7,16 +7,17 @@
       minutes: 30
   action:
     - service: lock.lock
-      entity_id: group.all_locks
+      entity_id: lock.front_door_lock_locked
     - service: cover.close_cover
       entity_id: group.all_covers
     - service: homeassistant.turn_off
       entity_id:
         - group.all_lights
         - group.all_switches
-    - service: nest.set_away_mode
+    - service: climate.set_preset_mode
       data:
-        away_mode: 'away'
+        preset_mode: eco
+        entity_id: climate.upstairs
     - service: climate.set_temperature
       entity_id: climate.floor
       data:
