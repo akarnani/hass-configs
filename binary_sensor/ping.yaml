@@ -1,8 +1,0 @@
-- platform: ping
-  host: google.com
-
-- platform: ping
-  host: youtube.com
-
-- platform: ping
-  host: facebook.com

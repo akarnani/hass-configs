@@ -1,16 +1,3 @@
-- alias: Kitchen Light Motion
-  trigger:
-    platform: state
-    entity_id: binary_sensor.kitchen_motion_sensor
-  action:
-    service_template: >
-            {% if trigger.to_state.state == 'on' %}
-              homeassistant.turn_on
-            {% else %}
-              homeassistant.turn_off
-            {% endif %}
-    entity_id: switch.kitchen_lights_switch
-
 - alias: Into Kitchen
   trigger:
     platform: state
@@ -26,29 +13,8 @@
         conditions:
           - condition: sun
             after: sunset
-            after_offset: '-02:00:00'
           - condition: sun
             before: sunrise
   action:
     service: homeassistant.turn_on
     entity_id: switch.kitchen_lights_switch
-
-- alias: Pantry Light On Motion
-  trigger:
-    platform: state
-    entity_id: binary_sensor.pantry_motion_sensor
-    to: 'on'
-  action:
-    service: homeassistant.turn_on
-    entity_id: switch.pantry_lights_switch
-
-- alias: Pantry Light Off Motion
-  trigger:
-    platform: state
-    entity_id: binary_sensor.pantry_motion_sensor
-    to: 'off'
-    for:
-      seconds: 20
-  action:
-    service: homeassistant.turn_off
-    entity_id: switch.pantry_lights_switch

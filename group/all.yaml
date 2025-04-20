@@ -29,3 +29,6 @@ all_switches:
     - switch.stairs_light_switch
     - switch.christmas_tree
     - switch.desk_lights_switch
+    - switch.back_yard_lights
+    - switch.bistro_lights
+    - switch.hallway_lights

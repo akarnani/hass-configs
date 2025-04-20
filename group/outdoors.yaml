@@ -3,5 +3,5 @@ outdoor_lights:
   entities:
     - switch.garden_lights_switch
     - switch.porch_lights_switch
-    - switch.front_outdoor_christmas_lights
-    - switch.back_outdoor_christmas_lights
+    - light.front_outdoor_christmas_lights
+    - light.back_outdoor_christmas_lights

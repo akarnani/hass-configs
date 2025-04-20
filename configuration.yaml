@@ -10,6 +10,9 @@ homeassistant:
   unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
+
+  country: US
+  currency: USD
   
   customize: !include_dir_merge_named customize
   packages: !include_dir_named packages
@@ -29,6 +32,8 @@ homeassistant:
 # Enables the frontend
 frontend:
 
+person:
+
 mobile_app:
 cloud:
 
@@ -42,7 +47,23 @@ my:
 system_health:
 
 homekit:
-  filter: !include homekit_filter.yaml
+  - filter: !include homekit_filter.yaml
+    name: Homekit Main
+    ip_address: 10.0.1.13
+  - name: Front Door
+    ip_address: 10.0.1.13
+    mode: accessory
+    port: 21067
+    filter:
+      include_entities:
+        - lock.front_door_lock_locked
+  - name: Kitchen Door
+    ip_address: 10.0.1.13
+    mode: accessory
+    port: 21068
+    filter:
+      include_entities:
+        - lock.kitchen_door_lock_locked
 
 energy:
 
@@ -90,12 +111,10 @@ nest:
 #  network_key: !secret zwave_network_key
 #  device_config: !include zwave_device_config.yaml
 
-hacs:
-  token: !secret github_token
-  appdaemon: true
     
 group: !include_dir_merge_named group
-automation: !include_dir_merge_list automation
+automation mine: !include_dir_merge_list automation
+automation ui: !include automations.yaml
 sensor: !include_dir_merge_list sensor
 binary_sensor: !include_dir_merge_list binary_sensor
 script: !include_dir_merge_named script

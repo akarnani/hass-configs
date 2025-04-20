@@ -8,7 +8,7 @@
         value: "KeyPressed2x"
   action:
     service: homeassistant.turn_on
-    entity_id: light.master_bedroom_lights_level
+    entity_id: light.master_bedroom_lights
     data:
       brightness: 255
 

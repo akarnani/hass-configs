@@ -1,5 +1,5 @@
 all_devices:
   name: All people
   entities:
-    - device_tracker.monitor_andrew
-    - device_tracker.monitor_vera
+    - person.andrew
+    - person.vera
