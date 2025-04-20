@@ -13,7 +13,14 @@
     - service: homeassistant.turn_off
       entity_id:
         - group.all_lights
-        - group.all_switches
+        - group.switches_off_on_gone
+    - if:
+        condition: state
+        entity_id: input_boolean.keep_coffee_on_next_away
+        state: 'off'
+      then:
+        - service: homeassistant.turn_off
+          entity_id: switch.coffee_machine
     - service: climate.set_preset_mode
       data:
         preset_mode: eco
@@ -23,3 +30,6 @@
       data:
         temperature: '{{state_attr("climate.floor", "min_temp")}}'
         hvac_mode: heat
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.keep_coffee_on_next_away

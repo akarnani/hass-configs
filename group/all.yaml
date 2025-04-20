@@ -16,10 +16,9 @@ all_lights:
     - light.family_room_lights
     - light.master_bedroom_lights
 
-all_switches:
-  name: All Switches
+switches_off_on_gone:
+  name: Switches Off When Gone
   entities:
-    - switch.coffee_machine
     - switch.porch_lights_switch
     - switch.garage_lights_switch
     - switch.garden_lights_switch
@@ -32,3 +31,9 @@ all_switches:
     - switch.back_yard_lights
     - switch.bistro_lights
     - switch.hallway_lights
+
+all_switches:
+  name: All Switches
+  entities:
+    - group.switches_off_on_gone
+    - switch.coffee_machine
