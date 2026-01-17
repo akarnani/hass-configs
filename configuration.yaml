@@ -6,8 +6,8 @@ homeassistant:
   longitude: !secret long
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
-  # metric for Metric, imperial for Imperial
-  unit_system: imperial
+
+  unit_system: us_customary
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
 
@@ -129,9 +129,5 @@ device_tracker:
 
 logger:
   default: warn
-
-media_player:
-  - platform: kodi
-    host: 10.0.1.50
 
 input_boolean: !include_dir_merge_named input_boolean
