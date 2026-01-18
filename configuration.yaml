@@ -124,6 +124,10 @@ input_datetime:
     name: Coffee Machine On Time
     has_date: false
     has_time: true
+  camera_privacy_off:
+    name: Camera Privacy Off Time
+    has_date: false
+    has_time: true
 
 device_tracker:
 

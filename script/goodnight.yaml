@@ -8,6 +8,9 @@ goodnight:
       entity_id: group.all_covers
     - service: lock.lock
       entity_id: group.all_locks
+    - service: script.set_camera_privacy
+      data:
+        privacy_mode: 'off'
     - delay: 00:00:30
     - service: homeassistant.turn_off
       entity_id:

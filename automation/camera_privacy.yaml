@@ -1,0 +1,32 @@
+- alias: Camera Recording On - Everyone Gone
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      to: 'not_home'
+  action:
+    - service: script.set_camera_privacy
+      data:
+        privacy_mode: 'off'
+
+- alias: Camera Recording Off - Someone Home
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      to: 'home'
+  action:
+    - service: script.set_camera_privacy
+      data:
+        privacy_mode: 'on'
+
+- alias: Camera Recording Off - Morning
+  trigger:
+    - platform: time
+      at: input_datetime.camera_privacy_off
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+  action:
+    - service: script.set_camera_privacy
+      data:
+        privacy_mode: 'on'
