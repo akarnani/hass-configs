@@ -1,0 +1,14 @@
+set_camera_privacy:
+  alias: Set Camera Privacy Mode
+  fields:
+    privacy_mode:
+      description: 'State of privacy mode (on = no recording, off = recording)'
+      example: 'on'
+  sequence:
+    - if:
+        condition: state
+        entity_id: input_boolean.camera_manual_control
+        state: 'off'
+      then:
+        - service: "homeassistant.turn_{{ privacy_mode }}"
+          entity_id: switch.family_room_camera_privacy_mode
