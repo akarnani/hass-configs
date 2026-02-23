@@ -19,7 +19,6 @@ all_lights:
 switches_off_on_gone:
   name: Switches Off When Gone
   entities:
-    - switch.porch_lights_switch
     - switch.garage_lights_switch
     - switch.garden_lights_switch
     - switch.kitchen_lights_switch
@@ -31,6 +30,7 @@ switches_off_on_gone:
     - switch.back_yard_lights
     - switch.bistro_lights
     - switch.hallway_lights
+    - switch.master_bathroom_switch
 
 all_switches:
   name: All Switches
